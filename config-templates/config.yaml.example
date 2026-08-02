@@ -1,0 +1,58 @@
+# ============================================================
+# Hermes Agent 配置模板
+# 复制到 ~/.hermes/config.yaml 并根据需要修改
+# ============================================================
+
+# 模型配置
+model:
+  provider: ollama              # 本地模型
+  model: qwen3:64k              # 主力模型
+  base_url: http://localhost:11434/v1
+  extra_body:
+    enable_thinking: false       # 关闭思考模式省 token
+
+# Agent 配置
+agent:
+  max_iterations: 500            # 最大工具调用轮次
+
+# 终端配置
+terminal:
+  cwd: "C:/Users/你的用户名"     # 工作目录
+
+# 压缩（用云端模型做上下文压缩）
+compression:
+  provider: alibaba              # 阿里云百炼
+  model: deepseek-v4-flash
+
+# Gateway 配置
+gateway:
+  enabled: true
+  platforms:
+    weixin:
+      enabled: true
+      bot_id: "你的iLink bot ID"
+      user_id: "你的微信用户 ID"
+
+# 微信端精简工具集（省 token）
+platform_toolsets:
+  weixin:
+    enabled:
+      - terminal
+      - web
+      - file
+      - memory
+      - todo
+
+# 知识库
+skills:
+  config:
+    wiki:
+      path: "D:/知识库"
+
+# 定时任务
+cron:
+  enabled: true
+
+# 日志
+logging:
+  level: INFO
