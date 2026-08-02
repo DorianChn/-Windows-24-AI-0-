@@ -38,7 +38,8 @@ hermes-ai-deploy-guide/
 │   ├── 03-知识库系统.md
 │   ├── 04-微信bot部署.md
 │   ├── 05-定时任务与自动化.md
-│   └── 06-监控与故障恢复.md
+│   ├── 06-监控与故障恢复.md
+│   └── 07-云端模型接入.md
 ├── scripts/
 │   ├── gateway-service/
 │   │   └── Hermes_Gateway_Idempotent.vbs
