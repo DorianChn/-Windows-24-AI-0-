@@ -21,6 +21,45 @@
 | ☁️ **云端混合架构** | 本地主力 + 云端备用，成本可控 |
 | ⏰ **定时任务系统** | Cron 调度，支持任务链和多平台推送 |
 
+## 📸 运行效果
+
+### 健康检查
+```
+$ python scripts/health-check.py
+  ✅ Gateway
+  ✅ Ollama
+  ✅ GPU
+  ✅ Disk (90.9GB free)
+
+  所有服务正常
+```
+
+### 本地模型
+```
+$ ollama list
+NAME                SIZE      MODIFIED
+qwen3:64k           5.2 GB    9 days ago
+llama3.2:3b         2.0 GB    9 days ago
+qwen2.5-coder:7b    4.7 GB    9 days ago
+minicpm-v:latest    5.5 GB    9 days ago
+```
+
+### 知识库结构
+```
+D:\知识库\
+├── AI技术\
+│   ├── 概念_(concepts)/
+│   ├── 实体_(entities)/
+│   ├── 原始资料_(raw)/
+│   └── 操作指南_(howto)/
+├── 加密货币\
+│   └── ... (同上结构)
+└── 计算机科学\
+    └── ... (同上结构)
+```
+
+> 💡 截图你的微信对话、Obsidian界面、Grafana面板，放到 `assets/` 目录，在这里引用
+
 ## 🏗️ 系统架构
 
 ```
