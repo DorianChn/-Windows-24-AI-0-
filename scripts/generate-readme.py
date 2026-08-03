@@ -1,4 +1,26 @@
-# 🤖 Windows 24H AI 助手
+#!/usr/bin/env python3
+"""生成README.md"""
+
+import os
+import sys
+from pathlib import Path
+from datetime import datetime
+
+def main():
+    print("📝 生成README.md...")
+    
+    # 获取项目根目录
+    project_root = Path(__file__).parent.parent
+    
+    # 统计文件
+    stats = {}
+    for file in project_root.rglob("*"):
+        if file.is_file() and ".git" not in str(file):
+            ext = file.suffix.lower()
+            stats[ext] = stats.get(ext, 0) + 1
+    
+    # 生成README
+    readme = f"""# 🤖 Windows 24H AI 助手
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
@@ -184,4 +206,19 @@ python scripts/deploy-github.py
 
 ---
 
-*最后更新: 2026-08-03*
+*最后更新: {datetime.now().strftime("%Y-%m-%d")}*
+"""
+    
+    # 保存README
+    readme_file = project_root / "README.md"
+    readme_file.write_text(readme, encoding="utf-8")
+    
+    print(f"✅ README.md 生成完成")
+    print(f"📊 项目统计:")
+    for ext, count in sorted(stats.items(), key=lambda x: x[1], reverse=True)[:10]:
+        print(f"  {ext}: {count}")
+    
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
